@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimplyApps — Useful Apps, Simply Made</title>
+  <meta name="description" content="Simple web apps for everyday living — life hacks, family games, and Malaysia-adapted tools. Built by See Yin." />
+  <meta name="keywords" content="SimplyApps, MakanPlan, retireSmart, BudgetBuddy, treasureHunt, CountryExplorerKids, Malaysia apps, See Yin" />
+  <meta name="author" content="See Yin" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://simplyapps.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://simplyapps.com" />
+  <meta property="og:title" content="SimplyApps — Useful Apps, Simply Made" />
+  <meta property="og:description" content="Simple web apps for everyday living — life hacks, family games, and Malaysia-adapted tools." />
+  <meta property="og:site_name" content="SimplyApps" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SimplyApps — Useful Apps, Simply Made" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"SimplyApps","url":"https://simplyapps.com","description":"Simple web apps for everyday living built by See Yin in Malaysia.","author":{"@type":"Person","name":"See Yin","nationality":"Malaysian"}}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f8f9fb;--white:#fff;--border:#e8eaed;
+      --text:#0f172a;--muted:#64748b;--faint:#94a3b8;
+      --blue:#2563eb;--blue-dark:#1d4ed8;--blue-soft:#eff6ff;--blue-border:#bfdbfe;
+      --green:#059669;--green-soft:#ecfdf5;
+      --orange:#ea580c;--orange-soft:#fff7ed;
+      --radius:16px;
+      --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:0 4px 16px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.04);
+      --shadow-lg:0 12px 32px rgba(0,0,0,.10),0 4px 12px rgba(0,0,0,.05);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#ffffff;border-bottom:1px solid var(--border)}
+    body{padding-top:56px}
+    .nav-inner{max-width:960px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:14px;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-.3px;cursor:pointer;transition:color .2s}
+    .nav-logo:hover{color:var(--blue)}
+    .nav-links{display:flex;align-items:center;gap:24px}
+    .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;font-weight:500;transition:color .2s;cursor:pointer}
+    .nav-links a:hover{color:var(--text)}
+
+    .page{display:none}.page.active{display:block}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden;padding:96px 24px 80px;text-align:center}
+    .hero-grid{position:absolute;inset:0;opacity:.035;background-image:linear-gradient(#000 1px,transparent 1px),linear-gradient(90deg,#000 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+    .hero-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:320px;background:radial-gradient(ellipse,#dbeafe 0%,transparent 70%);pointer-events:none}
+    .hero-inner{position:relative;max-width:640px;margin:0 auto}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--muted);box-shadow:var(--shadow-sm);margin-bottom:28px}
+    .badge-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+    .hero h1{font-size:clamp(44px,8vw,72px);font-weight:900;line-height:1;letter-spacing:-2px;color:var(--text);margin-bottom:16px}
+    .hero h1 span{color:var(--blue)}
+    .hero-sub{font-size:clamp(18px,3vw,22px);font-weight:500;color:var(--muted);margin-bottom:12px}
+    .hero-desc{font-size:15px;color:var(--faint);max-width:400px;margin:0 auto 36px;line-height:1.7}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:13px 26px;border-radius:12px;border:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:var(--shadow-sm);font-family:inherit;text-decoration:none}
+    .btn-dark{background:var(--text);color:#fff}.btn-dark:hover{background:#1e293b;transform:translateY(-1px);box-shadow:var(--shadow-md)}
+    .btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+
+    section{padding:80px 24px}
+    .section-inner{max-width:960px;margin:0 auto}
+    .section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:10px}
+    .section-title{font-size:clamp(28px,4vw,36px);font-weight:800;letter-spacing:-.8px;color:var(--text)}
+
+    /* CATEGORY CARDS */
+    .cat-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:40px}
+    @media(min-width:640px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
+    .cat-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:12px}
+    .cat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .cat-card.lifehack{border-top:3px solid var(--green)}
+    .cat-card.family{border-top:3px solid var(--orange)}
+    .cat-card.malaysia{border-top:3px solid var(--blue)}
+    .cat-icon{font-size:36px;line-height:1}
+    .cat-title{font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.3px}
+    .cat-desc{font-size:13px;color:var(--muted);line-height:1.6}
+    .cat-count{font-size:12px;font-weight:600;margin-top:auto}
+    .cnt-green{color:var(--green)}.cnt-orange{color:var(--orange)}.cnt-blue{color:var(--blue)}
+
+    /* ABOUT */
+    .about-text{font-size:clamp(16px,2.5vw,19px);color:var(--muted);line-height:1.8;max-width:520px}
+
+    /* SUGGEST & VOTE */
+    .suggest-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-sm);margin-bottom:32px}
+    .suggest-box h3{font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)}
+    .suggest-row{display:flex;gap:8px;flex-direction:column}
+    .suggest-input{flex:1;min-width:180px;border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;font-family:inherit;color:var(--text);outline:none;transition:border-color .2s;background:var(--bg)}
+    .suggest-input:focus{border-color:var(--blue);background:var(--white)}
+    .suggest-select{border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;font-family:inherit;color:var(--muted);background:var(--bg);outline:none;cursor:pointer}
+    .suggest-select:focus{border-color:var(--blue)}
+    .btn-suggest{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;width:100%}
+    .btn-suggest:hover{background:var(--blue-dark);transform:translateY(-1px)}
+    .ideas-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+    .ideas-title{font-size:15px;font-weight:700;color:var(--text)}
+    .filter-tabs{display:flex;gap:6px;flex-wrap:wrap}
+    .filter-tab{font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit}
+    .filter-tab.active{background:var(--text);color:#fff;border-color:var(--text)}
+    .ideas-list{display:flex;flex-direction:column;gap:10px}
+    .idea-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow-sm);transition:box-shadow .2s}
+    .idea-card:hover{box-shadow:var(--shadow-md)}
+    .vote-btn{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:8px 12px;cursor:pointer;transition:all .15s;min-width:52px;flex-shrink:0;font-family:inherit}
+    .vote-btn:hover{border-color:var(--blue);background:var(--blue-soft)}
+    .vote-btn.voted{background:var(--blue-soft);border-color:var(--blue)}
+    .vote-arrow{font-size:14px;line-height:1}
+    .vote-count{font-size:13px;font-weight:800;color:var(--text)}
+    .vote-btn.voted .vote-count{color:var(--blue)}
+    .idea-body{flex:1}
+    .idea-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
+    .idea-meta{font-size:12px;color:var(--faint)}
+    .idea-cat-tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;flex-shrink:0}
+    .tag-lifehack{background:var(--green-soft);color:var(--green)}
+    .tag-family{background:var(--orange-soft);color:var(--orange)}
+    .tag-malaysia{background:var(--blue-soft);color:var(--blue)}
+    .tag-general{background:#f1f5f9;color:var(--muted)}
+    .empty-state{text-align:center;padding:40px 20px;color:var(--faint);font-size:14px}
+    .empty-icon{font-size:32px;margin-bottom:8px}
+
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--text);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:600;box-shadow:var(--shadow-lg);z-index:999;transition:transform .3s ease;white-space:nowrap}
+    .toast.show{transform:translateX(-50%) translateY(0)}
+
+    footer{background:var(--white);border-top:1px solid var(--border);padding:28px 24px}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+    @media(min-width:640px){.footer-inner{flex-direction:row;justify-content:space-between;text-align:left}}
+    .footer-copy{font-size:13px;color:var(--faint)}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+    .footer-links a{font-size:13px;color:var(--faint);text-decoration:none;cursor:pointer;transition:color .2s}
+    .footer-links a:hover{color:var(--muted)}
+
+    /* CATEGORY DETAIL */
+    .cat-detail{padding:32px 24px 80px}
+    .cat-detail-inner{max-width:960px;margin:0 auto}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--faint);margin-bottom:20px;flex-wrap:wrap}
+    .breadcrumb a{color:var(--faint);text-decoration:none;cursor:pointer;transition:color .2s}
+    .breadcrumb a:hover{color:var(--muted)}
+    .breadcrumb span{color:var(--muted);font-weight:600}
+    .cat-detail-icon{font-size:36px;margin-bottom:8px}
+    .cat-detail-title{font-size:clamp(24px,5vw,40px);font-weight:900;letter-spacing:-0.8px;margin-bottom:8px}
+    .cat-detail-desc{font-size:14px;color:var(--muted);max-width:480px;line-height:1.6;margin-bottom:24px}
+    .apps-grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:560px){.apps-grid{grid-template-columns:1fr 1fr}}
+    .app-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;position:relative}
+    .app-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+    .app-card.featured{border-color:var(--blue-border);background:linear-gradient(135deg,var(--blue-soft) 0%,var(--white) 60%)}
+    .app-card.coming{opacity:.75}
+    .app-card-icon{font-size:36px;margin-bottom:12px}
+    .app-card-title{font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px}
+    .app-card-desc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:20px}
+    .coming-pill{display:inline-block;font-size:11px;font-weight:700;background:#f1f5f9;color:var(--muted);padding:4px 10px;border-radius:999px;margin-bottom:0}
+    .btn-open{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:10px 18px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;font-family:inherit;width:fit-content}
+    .btn-open.blue{background:var(--blue);color:#fff}.btn-open.blue:hover{background:var(--blue-dark);transform:translateY(-1px)}
+    .btn-open.dark{background:var(--text);color:#fff}.btn-open.dark:hover{background:#1e293b;transform:translateY(-1px)}
+    .btn-open.green{background:var(--green);color:#fff}.btn-open.green:hover{background:#047857;transform:translateY(-1px)}
+    .coming-soon-banner{background:#f8fafc;border:1px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;color:var(--faint)}
+
+    /* APP DETAIL */
+    .detail-wrap{max-width:960px;margin:0 auto;padding:32px 24px 64px}
+    .detail-grid{display:grid;grid-template-columns:1fr;gap:48px}
+    @media(min-width:768px){.detail-grid{grid-template-columns:1fr 1fr;align-items:start;gap:64px}}
+    .detail-icon{font-size:40px;margin-bottom:10px}
+    .detail-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+    .t-blue{background:var(--blue-soft);color:var(--blue)}
+    .t-green{background:var(--green-soft);color:var(--green)}
+    .t-orange{background:var(--orange-soft);color:var(--orange)}
+    .detail-title{font-size:clamp(28px,6vw,52px);font-weight:900;letter-spacing:-1px;line-height:1.1;color:var(--text);margin-bottom:12px}
+    .detail-desc{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:24px}
+    .feature-card{display:flex;gap:16px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow-sm);margin-bottom:12px;transition:box-shadow .2s}
+    .feature-card:hover{box-shadow:var(--shadow-md)}
+    .f-icon{font-size:26px;flex-shrink:0;line-height:1}
+    .f-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+    .f-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .reveal.d1{transition-delay:80ms}.reveal.d2{transition-delay:160ms}.reveal.d3{transition-delay:240ms}.reveal.d4{transition-delay:320ms}
+    .arrow{width:14px;height:14px;flex-shrink:0}
+  </style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showPage('home')">SimplyApps</a>
+    <div class="nav-links">
+      <a onclick="goHome('categories')">Apps</a>
+      <a onclick="goHome('about')">About</a>
+      <a onclick="showPage('suggest')">Suggest</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════ HOME ═══════════════════ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <h1 class="reveal d1">Simply<span>Apps</span></h1>
+      <p class="hero-sub reveal d2">Useful apps, simply made.</p>
+      <p class="hero-desc reveal d3">Tools for everyday living — from planning your makan trip to mapping out your retirement.</p>
+      <button class="btn btn-dark reveal d4" onclick="scrollToId('categories')">
+        Explore Apps
+        <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <section id="categories">
+    <div class="section-inner">
+      <p class="section-label reveal">Browse by Category</p>
+      <h2 class="section-title reveal d1">Pick what you need.</h2>
+      <div class="cat-grid">
+        <div class="cat-card lifehack reveal d1" onclick="showCategory('lifehack')">
+          <div class="cat-icon">💡</div>
+          <div class="cat-title">Life Hack</div>
+          <div class="cat-desc">Practical tools that make everyday life a little smarter and easier.</div>
+          <div class="cat-count cnt-green">2 apps available →</div>
+        </div>
+        <div class="cat-card family reveal d2" onclick="showCategory('family')">
+          <div class="cat-icon">🎮</div>
+          <div class="cat-title">Family Friendly Games</div>
+          <div class="cat-desc">Fun for everyone — games the whole family can enjoy together.</div>
+          <div class="cat-count cnt-orange">2 apps available →</div>
+        </div>
+        <div class="cat-card malaysia reveal d3" onclick="showCategory('malaysia')">
+          <div class="cat-icon">🇲🇾</div>
+          <div class="cat-title">Malaysia Adapted Apps</div>
+          <div class="cat-desc">Built for the Malaysian context — local data, local relevance.</div>
+          <div class="cat-count cnt-blue">2 apps available →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="background:var(--white);border-top:1px solid var(--border)">
+    <div class="section-inner">
+      <p class="section-label reveal">About</p>
+      <h2 class="section-title reveal d1" style="margin-bottom:20px">Hi, I'm See.</h2>
+      <p class="about-text reveal d2">I create simple apps for real life — things you might use for a moment, a habit, or just out of curiosity.</p>
+      <p class="about-text reveal d3" style="margin-top:16px">Some are built to help, some to reflect, some just to have fun.</p>
+      <p class="about-text reveal d4" style="margin-top:16px">I enjoy turning small ideas into tools people can actually use.</p>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ═══════════ CATEGORY: LIFE HACK ═══════════ -->
+<div id="page-cat-lifehack" class="page">
+  <div class="cat-detail">
+    <div class="cat-detail-inner">
+      <div class="cat-detail-icon">💡</div>
+      <h1 class="cat-detail-title">Life Hack</h1>
+      <p class="cat-detail-desc">Practical tools that make everyday life a little smarter and easier.</p>
+      <div class="apps-grid">
+        <div class="app-card">
+          <div class="app-card-icon">🍜</div>
+          <h3 class="app-card-title">MakanPlan</h3>
+          <p class="app-card-desc">A food-first trip planner — plan your meals, map your food stops, and share your itinerary to WhatsApp in seconds.</p>
+          <button class="btn-open dark" onclick="showAppDetail('makanplan')">Learn More <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+        </div>
+        <div class="app-card">
+          <div class="app-card-icon">💰</div>
+          <h3 class="app-card-title">BudgetBuddy</h3>
+          <p class="app-card-desc">A simple personal budget tracker to help you see where your money goes each month.</p>
+          <button class="btn-open dark" onclick="showAppDetail('budgetbuddy')">Learn More <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CATEGORY: FAMILY GAMES ═══════════ -->
+<div id="page-cat-family" class="page">
+  <div class="cat-detail">
+    <div class="cat-detail-inner">
+      <div class="cat-detail-icon">🎮</div>
+      <h1 class="cat-detail-title">Family Friendly Games</h1>
+      <p class="cat-detail-desc">Fun for everyone — games the whole family can enjoy together.</p>
+      <div class="apps-grid">
+        <div class="app-card">
+          <div class="app-card-icon">🏴‍☠️</div>
+          <h3 class="app-card-title">Treasure Hunt</h3>
+          <p class="app-card-desc">An interactive treasure hunt game for families — follow clues, solve puzzles, and find the treasure together.</p>
+          <button class="btn-open orange" onclick="launchApp('treasureHunt','https://lucysee.github.io/treasureHunt')">Launch App <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></button>
+        </div>
+        <div class="app-card">
+          <div class="app-card-icon">🌍</div>
+          <h3 class="app-card-title">Country Explorer Kids</h3>
+          <p class="app-card-desc">An educational explorer for kids — discover countries, flags, and fun facts around the world.</p>
+          <button class="btn-open orange" onclick="launchApp('CountryExplorerKids','https://lucysee.github.io/CountryExplorerKids')">Launch App <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CATEGORY: MALAYSIA ═══════════ -->
+<div id="page-cat-malaysia" class="page">
+  <div class="cat-detail">
+    <div class="cat-detail-inner">
+      <div class="cat-detail-icon">🇲🇾</div>
+      <h1 class="cat-detail-title">Malaysia Adapted Apps</h1>
+      <p class="cat-detail-desc">Built for the Malaysian context — local data, local relevance.</p>
+      <div class="apps-grid">
+        <div class="app-card featured">
+          <div class="app-card-icon">🏦</div>
+          <h3 class="app-card-title">RetireSmart</h3>
+          <p class="app-card-desc">A free, privacy-first Financial Independence planner built for Malaysians. EPF rules, RM currency, no login needed.</p>
+          <button class="btn-open blue" onclick="showAppDetail('retiresmart')">Learn More <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+        </div>
+        <div class="app-card">
+          <div class="app-card-icon">🎓</div>
+          <h3 class="app-card-title">Kids Education Fund</h3>
+          <p class="app-card-desc">Plan how much to save monthly for your children's university — with Malaysian tuition costs, SSPN guidance, and B40/M40/T20 tax relief tips.</p>
+          <button class="btn-open blue" onclick="showAppDetail('educationfund')">Learn More <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════ APP: RETIRESMART ═══════════ -->
+<div id="page-retiresmart" class="page">
+  <div class="detail-wrap">
+    <div class="detail-grid">
+      <div>
+        <div class="detail-icon">🏦</div>
+        <div class="detail-tag t-blue">Malaysia Adapted</div>
+        <h1 class="detail-title">Retire<br>Smart</h1>
+        <p class="detail-desc">A free, privacy-first Financial Independence planner built for Malaysians. Plan your retirement with EPF rules, RM currency, and real local benchmarks — no account, no login, no server.</p>
+        <button class="btn btn-blue" onclick="launchApp('retireSmart','https://lucysee.github.io/retireSmart')">
+          Launch App
+          <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        </button>
+      </div>
+      <div>
+        <div class="feature-card"><span class="f-icon">📊</span><div><p class="f-title">Full Financial Dashboard</p><p class="f-desc">See your portfolio, EPF breakdown, FI age, passive income split, and retirement score all in one place.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🇲🇾</span><div><p class="f-title">Built for Malaysia</p><p class="f-desc">EPF lock age 55, RM currency, EPF benchmarks (Basic RM390k · Adequate RM650k), and 2026 withdrawal rules built in.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🔒</span><div><p class="f-title">100% Private</p><p class="f-desc">Everything lives in your browser. No cloud, no account, no tracking. Reset anytime.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🔄</span><div><p class="f-title">What-If Scenarios</p><p class="f-desc">Instantly compare 5 scenarios — passive income boost, market crash, conservative returns, and more.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ APP: MAKANPLAN ═══════════ -->
+<div id="page-makanplan" class="page">
+  <div class="detail-wrap">
+    <div class="detail-grid">
+      <div>
+        <div class="detail-icon">🍜</div>
+        <div class="detail-tag t-green">Life Hack</div>
+        <h1 class="detail-title">Makan<br>Plan</h1>
+        <p class="detail-desc">A food-first trip planner built for real travel usage. Plan your meals, map your food stops, and share your full itinerary to WhatsApp in seconds.</p>
+        <button class="btn btn-blue" onclick="launchApp('MakanPlan','https://lucysee.github.io/MakanPlan')">
+          Launch App
+          <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        </button>
+      </div>
+      <div>
+        <div class="feature-card"><span class="f-icon">🗓️</span><div><p class="f-title">Day-by-Day Planner</p><p class="f-desc">Create a trip, pick your dates, and plan food stops for each day with smart time defaults.</p></div></div>
+        <div class="feature-card"><span class="f-icon">⚡</span><div><p class="f-title">Quick Add Meals</p><p class="f-desc">Tap ☕🍜🧋🍽🍡 to instantly add a food stop — no typing needed for common meal types.</p></div></div>
+        <div class="feature-card"><span class="f-icon">📍</span><div><p class="f-title">Google Maps Links</p><p class="f-desc">Paste a Google Maps link to any food stop and get a direct navigation button on every card.</p></div></div>
+        <div class="feature-card"><span class="f-icon">💚</span><div><p class="f-title">Share to WhatsApp</p><p class="f-desc">One tap sends your full formatted food itinerary straight to WhatsApp — perfect for group trips.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ═══════════ SUGGEST PAGE ═══════════ -->
+<div id="page-suggest" class="page">
+  <div class="cat-detail">
+    <div class="cat-detail-inner">
+      <div style="font-size:36px;margin-bottom:10px">💡</div>
+      <h1 style="font-size:24px;font-weight:800;color:var(--text);letter-spacing:-.4px;margin-bottom:8px">What app would help you?</h1>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.6">Suggest an idea or vote for what you want built next. The most-voted ideas get built first.</p>
+
+      <div class="suggest-box">
+        <h3>💬 Submit an app idea</h3>
+        <div class="suggest-row">
+          <input class="suggest-input" id="idea-input" type="text" placeholder="e.g. A prayer time tracker for Malaysia…" maxlength="120" />
+          <select class="suggest-select" id="idea-cat">
+            <option value="general">General</option>
+            <option value="lifehack">Life Hack</option>
+            <option value="family">Family Games</option>
+            <option value="malaysia">Malaysia</option>
+          </select>
+          <button class="btn-suggest" onclick="submitIdea()">Submit →</button>
+        </div>
+      </div>
+
+      <div class="ideas-header">
+        <p class="ideas-title">💡 Community app ideas</p>
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="filterIdeas('all',this)">All</button>
+          <button class="filter-tab" onclick="filterIdeas('lifehack',this)">Life Hack</button>
+          <button class="filter-tab" onclick="filterIdeas('family',this)">Games</button>
+          <button class="filter-tab" onclick="filterIdeas('malaysia',this)">Malaysia</button>
+          <button class="filter-tab" onclick="filterIdeas('general',this)">General</button>
+        </div>
+      </div>
+      <div class="ideas-list" id="ideas-list"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════ APP: BUDGETBUDDY ═══════════ -->
+<div id="page-budgetbuddy" class="page">
+  <div class="detail-wrap">
+    <div class="detail-grid">
+      <div>
+        <div class="detail-icon">💰</div>
+        <div class="detail-tag t-green">Life Hack</div>
+        <h1 class="detail-title">Budget<br>Buddy</h1>
+        <p class="detail-desc">A simple personal budget tracker to help you see where your money goes each month. No sign-up, no fuss — just clear, honest numbers.</p>
+        <button class="btn btn-blue" onclick="launchApp('BudgetBuddy','https://lucysee.github.io/BudgetBuddy')">
+          Launch App
+          <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        </button>
+      </div>
+      <div>
+        <div class="feature-card"><span class="f-icon">📊</span><div><p class="f-title">Track Your Spending</p><p class="f-desc">Log your income and expenses to see exactly where your money is going each month.</p></div></div>
+        <div class="feature-card"><span class="f-icon">📂</span><div><p class="f-title">Organised by Category</p><p class="f-desc">Group spending by food, transport, bills, and more — so patterns are easy to spot.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🔒</span><div><p class="f-title">Private & Offline</p><p class="f-desc">Everything stays in your browser. No account needed, no data sent anywhere.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════ APP: EDUCATION FUND ═══════════ -->
+<div id="page-educationfund" class="page">
+  <div class="detail-wrap">
+    <div class="detail-grid">
+      <div>
+        <div class="detail-icon">🎓</div>
+        <div class="detail-tag t-blue">Malaysia Adapted</div>
+        <h1 class="detail-title">Kids Education<br>Fund</h1>
+        <p class="detail-desc">A free education savings planner for Malaysian parents. Know exactly how much to save each month so your children's university education is fully covered — no guesswork, no login needed.</p>
+        <button class="btn btn-blue" onclick="launchApp('EducationFund','https://lucysee.github.io/EducationFund')">
+          Launch App
+          <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        </button>
+      </div>
+      <div>
+        <div class="feature-card"><span class="f-icon">👨‍👩‍👧</span><div><p class="f-title">Multi-Child Dashboard</p><p class="f-desc">Track savings goals for all your children in one place, each with their own timeline and monthly target.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🏛</span><div><p class="f-title">4 University Types</p><p class="f-desc">Choose from Public, Semi-Private, Full Private, or Overseas — with real Malaysian tuition and living cost data.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🎓</span><div><p class="f-title">SSPN & Tax Relief Guide</p><p class="f-desc">Includes SSPN dividend info and a B40/M40/T20 breakdown showing exactly how much tax relief you can claim.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🔒</span><div><p class="f-title">100% Private & Offline</p><p class="f-desc">All data stays on your device. No account, no server, works offline — reset anytime.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2025 SimplyApps · Built in 🇲🇾 Malaysia</p>
+  </div>
+</footer>
+
+
+<script>
+  const STORE_KEY = 'simplyapps-ideas-v2';
+  const SEED_IDEAS = [
+    {id:'s1',title:'Prayer time tracker for Malaysia',cat:'malaysia',votes:12,votedBy:[]},
+    {id:'s2',title:'Simple grocery list in Bahasa Malaysia',cat:'malaysia',votes:8,votedBy:[]},
+    {id:'s3',title:'Family quiz night game',cat:'family',votes:11,votedBy:[]},
+    {id:'s4',title:'Daily habit streak tracker',cat:'lifehack',votes:15,votedBy:[]},
+    {id:'s5',title:'Petrol price tracker Malaysia',cat:'malaysia',votes:9,votedBy:[]},
+  ];
+
+  let ideas = [];
+  let activeFilter = 'all';
+  let userId = localStorage.getItem('sa-uid') || ('u'+Math.random().toString(36).slice(2,10));
+  localStorage.setItem('sa-uid', userId);
+
+  function loadIdeas() {
+    try { const r = localStorage.getItem(STORE_KEY); ideas = r ? JSON.parse(r) : [...SEED_IDEAS]; }
+    catch(e) { ideas = [...SEED_IDEAS]; }
+    if (!ideas.length) ideas = [...SEED_IDEAS];
+    renderIdeas();
+  }
+  function saveIdeas() { localStorage.setItem(STORE_KEY, JSON.stringify(ideas)); }
+
+  function submitIdea() {
+    const inp = document.getElementById('idea-input');
+    const cat = document.getElementById('idea-cat').value;
+    const text = inp.value.trim();
+    if (!text || text.length < 5) { showToast('✏️ Please describe your idea a bit more!'); return; }
+    ideas.unshift({id:'i'+Date.now(),title:text,cat,votes:1,votedBy:[userId]});
+    saveIdeas(); inp.value=''; renderIdeas();
+    showToast('🎉 Idea submitted! Your vote is counted.');
+    if(typeof gtag!=='undefined') gtag('event','submit_idea',{category:cat,idea:text.substring(0,50)});
+  }
+
+  function vote(id) {
+    const idea = ideas.find(i=>i.id===id); if(!idea) return;
+    if(!idea.votedBy) idea.votedBy=[];
+    if(idea.votedBy.includes(userId)) {
+      idea.votedBy=idea.votedBy.filter(u=>u!==userId);
+      idea.votes=Math.max(0,idea.votes-1); showToast('Vote removed.');
+    } else {
+      idea.votedBy.push(userId); idea.votes++; showToast('👍 Voted!');
+      if(typeof gtag!=='undefined') gtag('event','upvote_idea',{idea_id:id});
+    }
+    saveIdeas(); renderIdeas();
+  }
+
+  function filterIdeas(cat,btn) {
+    activeFilter=cat;
+    document.querySelectorAll('.filter-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active'); renderIdeas();
+  }
+
+  const CAT_LABELS={lifehack:'Life Hack',family:'Family Games',malaysia:'Malaysia',general:'General'};
+  const CAT_CLASSES={lifehack:'tag-lifehack',family:'tag-family',malaysia:'tag-malaysia',general:'tag-general'};
+
+  function renderIdeas() {
+    const list=document.getElementById('ideas-list');
+    let filtered=activeFilter==='all'?ideas:ideas.filter(i=>i.cat===activeFilter);
+    filtered=[...filtered].sort((a,b)=>b.votes-a.votes);
+    if(!filtered.length){
+      list.innerHTML='<div class="empty-state"><div class="empty-icon">🌱</div>No ideas here yet — be the first!</div>';return;
+    }
+    list.innerHTML=filtered.map(idea=>{
+      const voted=(idea.votedBy||[]).includes(userId);
+      return `<div class="idea-card">
+        <button class="vote-btn ${voted?'voted':''}" onclick="vote('${idea.id}')">
+          <span class="vote-arrow">▲</span><span class="vote-count">${idea.votes}</span>
+        </button>
+        <div class="idea-body">
+          <p class="idea-title">${esc(idea.title)}</p>
+          <p class="idea-meta">${voted?'✓ You voted':'Click to upvote'}</p>
+        </div>
+        <span class="idea-cat-tag ${CAT_CLASSES[idea.cat]||'tag-general'}">${CAT_LABELS[idea.cat]||'General'}</span>
+      </div>`;
+    }).join('');
+  }
+
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+  function showToast(msg) {
+    const t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2500);
+  }
+
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page-'+name).classList.add('active');
+    window.scrollTo({top:0,behavior:'instant'}); runReveal();
+    if(typeof gtag!=='undefined') gtag('event','page_view',{page_title:name,page_location:window.location.href+'#'+name});
+  }
+
+  function showCategory(cat) {
+    showPage('cat-'+cat);
+    if(typeof gtag!=='undefined') gtag('event','view_category',{category:cat});
+  }
+  function showAppDetail(name) {
+    showPage(name);
+    if(typeof gtag!=='undefined') gtag('event','view_app_detail',{app_name:name});
+  }
+
+  function goHome(sectionId) {
+    showPage('home');
+    setTimeout(()=>scrollToId(sectionId),120);
+  }
+
+  function scrollToId(id) {
+    const el=document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  }
+
+  function launchApp(appName, url) {
+    if(typeof gtag!=='undefined') gtag('event','click_app',{app_name:appName});
+    setTimeout(()=>{ window.open(url,'_blank'); },120);
+  }
+
+  function runReveal() {
+    const obs=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+    },{threshold:0.08,rootMargin:'0px 0px -32px 0px'});
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    loadIdeas(); runReveal();
+    document.getElementById('idea-input').addEventListener('keydown',e=>{if(e.key==='Enter')submitIdea();});
+  });
+</script>
+</body>
+</html>
