@@ -88,7 +88,7 @@
     @media(min-width:640px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
     .cat-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:12px}
     .cat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-    .cat-card.lifehack{border-top:3px solid var(--green)}
+    .cat-card.general{border-top:3px solid var(--green)}
     .cat-card.family{border-top:3px solid var(--orange)}
     .cat-card.malaysia{border-top:3px solid var(--blue)}
     .cat-icon{font-size:36px;line-height:1}
@@ -128,7 +128,7 @@
     .idea-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
     .idea-meta{font-size:12px;color:var(--faint)}
     .idea-cat-tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;flex-shrink:0}
-    .tag-lifehack{background:var(--green-soft);color:var(--green)}
+    .tag-general{background:var(--green-soft);color:var(--green)}
     .tag-family{background:var(--orange-soft);color:var(--orange)}
     .tag-malaysia{background:var(--blue-soft);color:var(--blue)}
     .tag-general{background:#f1f5f9;color:var(--muted)}
@@ -233,11 +233,11 @@
       <p class="section-label reveal">Browse by Category</p>
       <h2 class="section-title reveal d1">Pick what you need.</h2>
       <div class="cat-grid">
-        <div class="cat-card lifehack reveal d1" onclick="showCategory('lifehack')">
+        <div class="cat-card general reveal d1" onclick="showCategory('general')">
           <div class="cat-icon">💡</div>
-          <div class="cat-title">Life Hack</div>
-          <div class="cat-desc">Practical tools that make everyday life a little smarter and easier.</div>
-          <div class="cat-count cnt-green">2 apps available →</div>
+          <div class="cat-title">General</div>
+          <div class="cat-desc">Useful tools for everyday life, learning, and personal growth.</div>
+          <div class="cat-count cnt-green">3 apps available →</div>
         </div>
         <div class="cat-card family reveal d2" onclick="showCategory('family')">
           <div class="cat-icon">🎮</div>
@@ -269,11 +269,11 @@
 
 
 <!-- ═══════════ CATEGORY: LIFE HACK ═══════════ -->
-<div id="page-cat-lifehack" class="page">
+<div id="page-cat-general" class="page">
   <div class="cat-detail">
     <div class="cat-detail-inner">
       <div class="cat-detail-icon">💡</div>
-      <h1 class="cat-detail-title">Life Hack</h1>
+      <h1 class="cat-detail-title">General</h1>
       <p class="cat-detail-desc">Practical tools that make everyday life a little smarter and easier.</p>
       <div class="apps-grid">
         <div class="app-card">
@@ -287,6 +287,12 @@
           <h3 class="app-card-title">BudgetBuddy</h3>
           <p class="app-card-desc">A simple personal budget tracker to help you see where your money goes each month.</p>
           <button class="btn-open dark" onclick="showAppDetail('budgetbuddy')">Learn More <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+        </div>
+        <div class="app-card">
+          <div class="app-card-icon">🌍</div>
+          <h3 class="app-card-title">Cultural Intelligence</h3>
+          <p class="app-card-desc">Know how to work with colleagues around the world — understand cultural differences before they become misunderstandings.</p>
+          <button class="btn-open dark" onclick="showAppDetail('culturalintelligence')">Learn More <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
         </div>
       </div>
     </div>
@@ -374,7 +380,7 @@
     <div class="detail-grid">
       <div>
         <div class="detail-icon">🍜</div>
-        <div class="detail-tag t-green">Life Hack</div>
+        <div class="detail-tag t-green">General</div>
         <h1 class="detail-title">Makan<br>Plan</h1>
         <p class="detail-desc">A food-first trip planner built for real travel usage. Plan your meals, map your food stops, and share your full itinerary to WhatsApp in seconds.</p>
         <button class="btn btn-blue" onclick="launchApp('MakanPlan','https://lucysee.github.io/MakanPlan')">
@@ -408,7 +414,7 @@
           <input class="suggest-input" id="idea-input" type="text" placeholder="e.g. A prayer time tracker for Malaysia…" maxlength="120" />
           <select class="suggest-select" id="idea-cat">
             <option value="general">General</option>
-            <option value="lifehack">Life Hack</option>
+            <option value="general">General</option>
             <option value="family">Family Games</option>
             <option value="malaysia">Malaysia</option>
           </select>
@@ -420,7 +426,7 @@
         <p class="ideas-title">💡 Community app ideas</p>
         <div class="filter-tabs">
           <button class="filter-tab active" onclick="filterIdeas('all',this)">All</button>
-          <button class="filter-tab" onclick="filterIdeas('lifehack',this)">Life Hack</button>
+          <button class="filter-tab" onclick="filterIdeas('general',this)">General</button>
           <button class="filter-tab" onclick="filterIdeas('family',this)">Games</button>
           <button class="filter-tab" onclick="filterIdeas('malaysia',this)">Malaysia</button>
           <button class="filter-tab" onclick="filterIdeas('general',this)">General</button>
@@ -438,7 +444,7 @@
     <div class="detail-grid">
       <div>
         <div class="detail-icon">💰</div>
-        <div class="detail-tag t-green">Life Hack</div>
+        <div class="detail-tag t-green">General</div>
         <h1 class="detail-title">Budget<br>Buddy</h1>
         <p class="detail-desc">A simple personal budget tracker to help you see where your money goes each month. No sign-up, no fuss — just clear, honest numbers.</p>
         <button class="btn btn-blue" onclick="launchApp('BudgetBuddy','https://lucysee.github.io/BudgetBuddy')">
@@ -475,6 +481,31 @@
         <div class="feature-card"><span class="f-icon">🏛</span><div><p class="f-title">4 University Types</p><p class="f-desc">Choose from Public, Semi-Private, Full Private, or Overseas — with real Malaysian tuition and living cost data.</p></div></div>
         <div class="feature-card"><span class="f-icon">🎓</span><div><p class="f-title">SSPN & Tax Relief Guide</p><p class="f-desc">Includes SSPN dividend info and a B40/M40/T20 breakdown showing exactly how much tax relief you can claim.</p></div></div>
         <div class="feature-card"><span class="f-icon">🔒</span><div><p class="f-title">100% Private & Offline</p><p class="f-desc">All data stays on your device. No account, no server, works offline — reset anytime.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════ APP: CULTURAL INTELLIGENCE ═══════════ -->
+<div id="page-culturalintelligence" class="page">
+  <div class="detail-wrap">
+    <div class="detail-grid">
+      <div>
+        <div class="detail-icon">🌍</div>
+        <div class="detail-tag t-green">General</div>
+        <h1 class="detail-title">Cultural<br>Intelligence</h1>
+        <p class="detail-desc">A smart culture comparison tool inspired by Erin Meyer's The Culture Map. Understand how different countries communicate, lead, and collaborate — no AI, no backend needed.</p>
+        <button class="btn btn-blue" onclick="launchApp('CulturalIntelligence','https://lucysee.github.io/CulturalIntelligence')">
+          Launch App
+          <svg class="arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        </button>
+      </div>
+      <div>
+        <div class="feature-card"><span class="f-icon">⚡</span><div><p class="f-title">Cultural Gap Score</p><p class="f-desc">Get a compatibility score and top 3 cultural differences between any two countries with an action plan.</p></div></div>
+        <div class="feature-card"><span class="f-icon">📊</span><div><p class="f-title">Visual Comparison</p><p class="f-desc">Radar chart and dimension-by-dimension breakdown across 7 culture map dimensions including communication, leadership, and trust.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🎯</span><div><p class="f-title">Scenario Playbooks</p><p class="f-desc">Do's, don'ts, and phrases for meetings, feedback, and negotiation between cultures.</p></div></div>
+        <div class="feature-card"><span class="f-icon">🌐</span><div><p class="f-title">25 Countries</p><p class="f-desc">Covers Malaysia, Singapore, Japan, USA, Germany, UK, and 19 more — including Southeast Asia.</p></div></div>
       </div>
     </div>
   </div>
@@ -534,8 +565,8 @@
     btn.classList.add('active'); renderIdeas();
   }
 
-  const CAT_LABELS={lifehack:'Life Hack',family:'Family Games',malaysia:'Malaysia',general:'General'};
-  const CAT_CLASSES={lifehack:'tag-lifehack',family:'tag-family',malaysia:'tag-malaysia',general:'tag-general'};
+  const CAT_LABELS={general:'General',family:'Family Games',malaysia:'Malaysia',general:'General'};
+  const CAT_CLASSES={general:'tag-general',family:'tag-family',malaysia:'tag-malaysia',general:'tag-general'};
 
   function renderIdeas() {
     const list=document.getElementById('ideas-list');
