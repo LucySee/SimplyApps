@@ -1,9 +1,9 @@
-# SimplyApps
+# SimplyAppsLab
 
 A personal hub for simple web apps — built for everyday living.
 
-🔗 **Live:** https://simplyapps.vercel.app
+🔗 **Live:** https://simplyappslab.com
 
 ---
 
-Built by [See Yin](https://github.com/LucySee) · 🇲🇾
+
