@@ -205,7 +205,7 @@
     <div class="nav-links">
       <a onclick="goHome('categories')">Apps</a>
       <a onclick="goHome('about')">About</a>
-      <a onclick="showPage('suggest')">Suggest</a>
+      
     </div>
   </div>
 </nav>
@@ -402,7 +402,7 @@
 
 
 <!-- ═══════════ SUGGEST PAGE ═══════════ -->
-<div id="page-suggest" class="page">
+<div id="page-suggest" class="page" style="display:none!important">
   <div class="cat-detail">
     <div class="cat-detail-inner">
       <div style="font-size:36px;margin-bottom:10px">💡</div>
@@ -627,7 +627,7 @@
 
   function launchApp(appName, url) {
     if(typeof gtag!=='undefined') gtag('event','click_app',{app_name:appName});
-    setTimeout(()=>{ window.open(url,'_blank'); },120);
+    setTimeout(()=>{ window.location.href=url; },120);
   }
 
   function runReveal() {
