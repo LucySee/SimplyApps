@@ -150,6 +150,9 @@
     .lightbox-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.15);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
     .arrow{width:14px;height:14px;flex-shrink:0}
+    .feedback-bar{position:fixed;bottom:20px;right:20px;z-index:500}
+    .feedback-btn{background:var(--blue);color:#fff;border:none;border-radius:999px;padding:12px 20px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
+    .feedback-btn:hover{background:var(--blue-dark);transform:translateY(-2px)}
     .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
     .reveal.visible{opacity:1;transform:none}
     .reveal.d1{transition-delay:80ms}.reveal.d2{transition-delay:160ms}.reveal.d3{transition-delay:240ms}
@@ -226,7 +229,7 @@
       <p class="about-text reveal d2" style="margin-top:16px">Turning small ideas into useful tools is what I enjoy most.</p>
       <p class="about-text reveal d2" style="margin-top:16px">It usually begins with a small thought — "this could be simpler" or "I wish this existed."</p>
       <p class="about-text reveal d2" style="margin-top:16px">So I build it — to make life a little easier for myself, and hopefully for you too.</p>
-      <p class="about-text reveal d2" style="margin-top:24px;font-size:14px">Spotted something off or have an idea?<br>Reach me at <a href="mailto:pepsisee@gmail.com?subject=SimplyAppsLab" style="color:var(--blue);text-decoration:none">pepsisee@gmail.com</a> — just include "SimplyAppsLab" in the subject.</p>
+      <p class="about-text reveal d2" style="margin-top:24px;font-size:14px">Spotted something off or have an idea? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAdOSIXuBk_In3ugBHVVB2g87r94C5-rSYRJM1batpHbbobw/viewform" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:600">Share your feedback via the Google Form →</a></p>
     </div>
   </section>
 
@@ -462,7 +465,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <p class="footer-copy">© 2025 SimplyAppsLab · Built in 🇲🇾 Malaysia</p>
+    <p class="footer-copy">© 2026 SimplyAppsLab · Built in 🇲🇾 Malaysia</p>
   </div>
 </footer>
 
@@ -510,5 +513,13 @@
   }
   document.addEventListener('DOMContentLoaded', runReveal);
 </script>
+
+<!-- Feedback Button -->
+<div class="feedback-bar">
+  <button class="feedback-btn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeAdOSIXuBk_In3ugBHVVB2g87r94C5-rSYRJM1batpHbbobw/viewform','_blank')">
+    💬 Feedback
+  </button>
+</div>
+
 </body>
 </html>
